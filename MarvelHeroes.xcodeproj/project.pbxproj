@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0467265921CCFF2400C0EA52 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467265821CCFF2400C0EA52 /* NetworkManager.swift */; };
+		0467265B21CD001100C0EA52 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467265A21CD001100C0EA52 /* NetworkManagerProtocol.swift */; };
+		0467265D21CD026700C0EA52 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467265C21CD026700C0EA52 /* Constants.swift */; };
+		0467266221CD0C2000C0EA52 /* HeroesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467266121CD0C2000C0EA52 /* HeroesListViewController.swift */; };
+		0467266521CD0C6800C0EA52 /* HeroesListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467266421CD0C6800C0EA52 /* HeroesListProtocols.swift */; };
+		0467266821CD0E7B00C0EA52 /* HeroesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467266721CD0E7B00C0EA52 /* HeroesListPresenter.swift */; };
+		0467266B21CD0EF200C0EA52 /* HeroesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467266A21CD0EF200C0EA52 /* HeroesListInteractor.swift */; };
+		0467266E21CD121100C0EA52 /* HeroesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467266D21CD121100C0EA52 /* HeroesListRouter.swift */; };
 		048C8BF221CC2774000DDA00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C8BF121CC2774000DDA00 /* AppDelegate.swift */; };
-		048C8BF421CC2774000DDA00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C8BF321CC2774000DDA00 /* ViewController.swift */; };
 		048C8BF721CC2774000DDA00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048C8BF521CC2774000DDA00 /* Main.storyboard */; };
 		048C8BFA21CC2774000DDA00 /* MarvelHeroes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 048C8BF821CC2774000DDA00 /* MarvelHeroes.xcdatamodeld */; };
 		048C8BFC21CC2776000DDA00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048C8BFB21CC2776000DDA00 /* Assets.xcassets */; };
@@ -38,9 +45,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0467265821CCFF2400C0EA52 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0467265A21CD001100C0EA52 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
+		0467265C21CD026700C0EA52 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0467266121CD0C2000C0EA52 /* HeroesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListViewController.swift; sourceTree = "<group>"; };
+		0467266421CD0C6800C0EA52 /* HeroesListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListProtocols.swift; sourceTree = "<group>"; };
+		0467266721CD0E7B00C0EA52 /* HeroesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListPresenter.swift; sourceTree = "<group>"; };
+		0467266A21CD0EF200C0EA52 /* HeroesListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListInteractor.swift; sourceTree = "<group>"; };
+		0467266D21CD121100C0EA52 /* HeroesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListRouter.swift; sourceTree = "<group>"; };
 		048C8BEE21CC2774000DDA00 /* MarvelHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048C8BF121CC2774000DDA00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		048C8BF321CC2774000DDA00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		048C8BF621CC2774000DDA00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		048C8BF921CC2774000DDA00 /* MarvelHeroes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarvelHeroes.xcdatamodel; sourceTree = "<group>"; };
 		048C8BFB21CC2776000DDA00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +115,84 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0467265521CCFDFF00C0EA52 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0467265621CCFECE00C0EA52 /* Managers */,
+				0467265C21CD026700C0EA52 /* Constants.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0467265621CCFECE00C0EA52 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0467265721CCFEE800C0EA52 /* Network */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0467265721CCFEE800C0EA52 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0467265821CCFF2400C0EA52 /* NetworkManager.swift */,
+				0467265A21CD001100C0EA52 /* NetworkManagerProtocol.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0467265F21CD0B2600C0EA52 /* HeroesList */ = {
+			isa = PBXGroup;
+			children = (
+				0467266C21CD11AA00C0EA52 /* Router */,
+				0467266921CD0EE400C0EA52 /* Interactor */,
+				0467266621CD0E6800C0EA52 /* Presenter */,
+				0467266321CD0C4B00C0EA52 /* Protocols */,
+				0467266021CD0BDB00C0EA52 /* View */,
+			);
+			path = HeroesList;
+			sourceTree = "<group>";
+		};
+		0467266021CD0BDB00C0EA52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0467266121CD0C2000C0EA52 /* HeroesListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0467266321CD0C4B00C0EA52 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0467266421CD0C6800C0EA52 /* HeroesListProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0467266621CD0E6800C0EA52 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0467266721CD0E7B00C0EA52 /* HeroesListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0467266921CD0EE400C0EA52 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0467266A21CD0EF200C0EA52 /* HeroesListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0467266C21CD11AA00C0EA52 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				0467266D21CD121100C0EA52 /* HeroesListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		048C8BE521CC2774000DDA00 = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +218,9 @@
 		048C8BF021CC2774000DDA00 /* MarvelHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				0467265F21CD0B2600C0EA52 /* HeroesList */,
+				0467265521CCFDFF00C0EA52 /* Common */,
 				048C8BF121CC2774000DDA00 /* AppDelegate.swift */,
-				048C8BF321CC2774000DDA00 /* ViewController.swift */,
 				048C8BF521CC2774000DDA00 /* Main.storyboard */,
 				048C8BFB21CC2776000DDA00 /* Assets.xcassets */,
 				048C8BFD21CC2776000DDA00 /* LaunchScreen.storyboard */,
@@ -378,9 +471,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				048C8BF421CC2774000DDA00 /* ViewController.swift in Sources */,
+				0467265921CCFF2400C0EA52 /* NetworkManager.swift in Sources */,
+				0467266B21CD0EF200C0EA52 /* HeroesListInteractor.swift in Sources */,
+				0467266E21CD121100C0EA52 /* HeroesListRouter.swift in Sources */,
 				048C8BF221CC2774000DDA00 /* AppDelegate.swift in Sources */,
+				0467266521CD0C6800C0EA52 /* HeroesListProtocols.swift in Sources */,
 				048C8BFA21CC2774000DDA00 /* MarvelHeroes.xcdatamodeld in Sources */,
+				0467266221CD0C2000C0EA52 /* HeroesListViewController.swift in Sources */,
+				0467265B21CD001100C0EA52 /* NetworkManagerProtocol.swift in Sources */,
+				0467265D21CD026700C0EA52 /* Constants.swift in Sources */,
+				0467266821CD0E7B00C0EA52 /* HeroesListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
