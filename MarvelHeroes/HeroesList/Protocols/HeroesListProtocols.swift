@@ -12,6 +12,7 @@ protocol HeroesListViewProtocol: class {
     var presenter: HeroesListPresenterProtocol? { get set }
 
     // PRESENTER -> VIEW
+    func showHeroes(_ heroes:[Heroe])
 }
 
 protocol HeroesListRouterProtocol: class {
@@ -31,7 +32,7 @@ protocol HeroesListPresenterProtocol: class {
 
 protocol HeroesListInteractorOutputProtocol: class {
     // INTERACTOR -> PRESENTER
-    func didRetrieveHeroes()
+    func didRetrieveHeroes(_ heroes: [Heroe])
    // func onError()
 }
 

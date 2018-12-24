@@ -19,7 +19,7 @@ class HeroesListPresenter: HeroesListPresenterProtocol {
 }
 
 extension HeroesListPresenter: HeroesListInteractorOutputProtocol{
-    func didRetrieveHeroes() {
-        print ("yay")
-    }    
+    func didRetrieveHeroes(_ heroes: [Heroe]) {
+        view?.showHeroes(heroes)
+    }
 }

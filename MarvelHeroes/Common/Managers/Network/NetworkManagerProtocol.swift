@@ -8,7 +8,8 @@
 
 import Foundation
 
+typealias HeroesListHandler = ([Heroe]) -> Void
+
 protocol NetworkManagerProtocol{
-    
-    func request(_ url: String)
+    func getHeroesList(_ completion: @escaping HeroesListHandler) 
 }

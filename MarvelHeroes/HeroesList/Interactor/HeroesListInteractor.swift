@@ -13,8 +13,9 @@ class HeroesListInteractor: HeroesListInteractorInputProtocol{
     var networkManager: NetworkManagerProtocol?
     
     func retrieveHeroesList() {
-        networkManager?.request(Constants.marvelBaseEndPoint + Constants.marvelCharactersEndPoint)
-        presenter?.didRetrieveHeroes()
+        networkManager?.getHeroesList({ [weak self] heroes in 
+            self?.presenter?.didRetrieveHeroes(heroes)
+        })
     }
     
     

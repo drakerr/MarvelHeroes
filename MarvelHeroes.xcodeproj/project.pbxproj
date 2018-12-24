@@ -22,6 +22,10 @@
 		048C8BFF21CC2776000DDA00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048C8BFD21CC2776000DDA00 /* LaunchScreen.storyboard */; };
 		048C8C0A21CC2776000DDA00 /* MarvelHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C8C0921CC2776000DDA00 /* MarvelHeroesTests.swift */; };
 		048C8C1521CC2776000DDA00 /* MarvelHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C8C1421CC2776000DDA00 /* MarvelHeroesUITests.swift */; };
+		04D1A72721D141C4005A06C3 /* HeroesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1A72521D141C4005A06C3 /* HeroesListTableViewCell.swift */; };
+		04D1A72821D141C4005A06C3 /* HeroesListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D1A72621D141C4005A06C3 /* HeroesListTableViewCell.xib */; };
+		04D1A72B21D14700005A06C3 /* Heroe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1A72A21D14700005A06C3 /* Heroe.swift */; };
+		04D1A72E21D14F8C005A06C3 /* HeroesListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1A72D21D14F8C005A06C3 /* HeroesListResponseModel.swift */; };
 		50B519AE699816F83E140DFA /* Pods_MarvelHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E513B5BE81D35367C7CA4FA2 /* Pods_MarvelHeroes.framework */; };
 		A5CF58EB7D29391E5D54FEC7 /* Pods_MarvelHeroesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF0D54ACC36D39607A44C39 /* Pods_MarvelHeroesTests.framework */; };
 		FF24D4500807D18575C38D60 /* Pods_MarvelHeroesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B564E3D25052328FE301E86 /* Pods_MarvelHeroesUITests.framework */; };
@@ -66,6 +70,10 @@
 		048C8C1021CC2776000DDA00 /* MarvelHeroesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelHeroesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		048C8C1421CC2776000DDA00 /* MarvelHeroesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelHeroesUITests.swift; sourceTree = "<group>"; };
 		048C8C1621CC2776000DDA00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04D1A72521D141C4005A06C3 /* HeroesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListTableViewCell.swift; sourceTree = "<group>"; };
+		04D1A72621D141C4005A06C3 /* HeroesListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesListTableViewCell.xib; sourceTree = "<group>"; };
+		04D1A72A21D14700005A06C3 /* Heroe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heroe.swift; sourceTree = "<group>"; };
+		04D1A72D21D14F8C005A06C3 /* HeroesListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListResponseModel.swift; sourceTree = "<group>"; };
 		0E820AABD251436F5513BD0E /* Pods-MarvelHeroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelHeroes/Pods-MarvelHeroes.debug.xcconfig"; sourceTree = "<group>"; };
 		1658EF49EAE4F6B896A9DB22 /* Pods-MarvelHeroes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelHeroes/Pods-MarvelHeroes.release.xcconfig"; sourceTree = "<group>"; };
 		1B564E3D25052328FE301E86 /* Pods_MarvelHeroesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelHeroesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +152,7 @@
 		0467265F21CD0B2600C0EA52 /* HeroesList */ = {
 			isa = PBXGroup;
 			children = (
+				04D1A72C21D14F58005A06C3 /* Entities */,
 				0467266C21CD11AA00C0EA52 /* Router */,
 				0467266921CD0EE400C0EA52 /* Interactor */,
 				0467266621CD0E6800C0EA52 /* Presenter */,
@@ -157,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				0467266121CD0C2000C0EA52 /* HeroesListViewController.swift */,
+				04D1A72521D141C4005A06C3 /* HeroesListTableViewCell.swift */,
+				04D1A72621D141C4005A06C3 /* HeroesListTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,6 +229,7 @@
 		048C8BF021CC2774000DDA00 /* MarvelHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				04D1A72921D146E2005A06C3 /* Entities */,
 				0467265F21CD0B2600C0EA52 /* HeroesList */,
 				0467265521CCFDFF00C0EA52 /* Common */,
 				048C8BF121CC2774000DDA00 /* AppDelegate.swift */,
@@ -246,6 +258,22 @@
 				048C8C1621CC2776000DDA00 /* Info.plist */,
 			);
 			path = MarvelHeroesUITests;
+			sourceTree = "<group>";
+		};
+		04D1A72921D146E2005A06C3 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				04D1A72A21D14700005A06C3 /* Heroe.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		04D1A72C21D14F58005A06C3 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				04D1A72D21D14F8C005A06C3 /* HeroesListResponseModel.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		C774D9993E01DB9D37943FEC /* Pods */ = {
@@ -370,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				048C8BFF21CC2776000DDA00 /* LaunchScreen.storyboard in Resources */,
+				04D1A72821D141C4005A06C3 /* HeroesListTableViewCell.xib in Resources */,
 				048C8BFC21CC2776000DDA00 /* Assets.xcassets in Resources */,
 				048C8BF721CC2774000DDA00 /* Main.storyboard in Resources */,
 			);
@@ -473,8 +502,11 @@
 			files = (
 				0467265921CCFF2400C0EA52 /* NetworkManager.swift in Sources */,
 				0467266B21CD0EF200C0EA52 /* HeroesListInteractor.swift in Sources */,
+				04D1A72721D141C4005A06C3 /* HeroesListTableViewCell.swift in Sources */,
 				0467266E21CD121100C0EA52 /* HeroesListRouter.swift in Sources */,
 				048C8BF221CC2774000DDA00 /* AppDelegate.swift in Sources */,
+				04D1A72E21D14F8C005A06C3 /* HeroesListResponseModel.swift in Sources */,
+				04D1A72B21D14700005A06C3 /* Heroe.swift in Sources */,
 				0467266521CD0C6800C0EA52 /* HeroesListProtocols.swift in Sources */,
 				048C8BFA21CC2774000DDA00 /* MarvelHeroes.xcdatamodeld in Sources */,
 				0467266221CD0C2000C0EA52 /* HeroesListViewController.swift in Sources */,
