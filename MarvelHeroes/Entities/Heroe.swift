@@ -13,4 +13,8 @@ struct Heroe: Decodable {
     let name: String
     let description: String
     let thumbnail: [String:String]
+    var imageUrl: String? {
+        guard let imagePath = thumbnail["path"], let imageExtension = thumbnail["extension"] else {return nil}
+        return imagePath + "." + imageExtension
+    }
 }
