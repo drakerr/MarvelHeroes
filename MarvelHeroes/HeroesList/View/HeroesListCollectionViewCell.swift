@@ -12,12 +12,14 @@ import Kingfisher
 class HeroesListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var cellContentView: UIView!
     
     static let identifier = String(describing: HeroesListCollectionViewCell.self)
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        cellContentView.roundedBy(10)
     }
     
     func configureWithHeroe(_ heroe: Heroe){

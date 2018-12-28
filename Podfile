@@ -8,7 +8,7 @@ target 'MarvelHeroes' do
   # Pods for MarvelHeroes
 	pod 'Alamofire', '~> 5.0.0.beta.1'
   	pod 'Kingfisher', '~> 5.0'
-
+	pod 'JGProgressHUD'
   target 'MarvelHeroesTests' do
     inherit! :search_paths
     # Pods for testing

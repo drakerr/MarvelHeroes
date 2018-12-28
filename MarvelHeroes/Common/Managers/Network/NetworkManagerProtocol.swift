@@ -11,5 +11,5 @@ import Foundation
 typealias HeroesListHandler = ([Heroe]) -> Void
 
 protocol NetworkManagerProtocol{
-    func getHeroesList(_ completion: @escaping HeroesListHandler) 
+    func getHeroesList(offset: Int, completion: @escaping HeroesListHandler) 
 }

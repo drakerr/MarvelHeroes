@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol HeroesListCollectionViewDelegate: class {
+    func willDisplayLastCell()
+}
+
 class HeroesListCollectionView: UICollectionView {
     var heroesList : [Heroe] = []
-
+    weak var heroesListCVDelegate: HeroesListCollectionViewDelegate?
+    
     let lineSpacing: CGFloat = 5
     let sidesInset: CGFloat = 5
 
@@ -20,7 +25,6 @@ class HeroesListCollectionView: UICollectionView {
         self.delegate = self
         self.register(UINib(nibName: String(describing: HeroesListCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: HeroesListCollectionViewCell.identifier)
     }
-
 }
 
 extension HeroesListCollectionView: UICollectionViewDataSource {
@@ -35,13 +39,22 @@ extension HeroesListCollectionView: UICollectionViewDataSource {
         cell.configureWithHeroe(heroe)
         return cell
     }
+    
+}
+
+extension HeroesListCollectionView: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (indexPath.item == heroesList.count - 1) {
+            heroesListCVDelegate?.willDisplayLastCell()
+        }
+    }
 }
 
 extension HeroesListCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = (UIScreen.main.bounds.width / 2) - lineSpacing - sidesInset
-        return CGSize(width: screenWidth, height: 190)
+        return CGSize(width: screenWidth, height: 200)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -51,8 +64,8 @@ extension HeroesListCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return lineSpacing
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: sidesInset, bottom: 0, right: sidesInset)
     }
 }
-

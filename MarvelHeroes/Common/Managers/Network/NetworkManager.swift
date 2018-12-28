@@ -13,34 +13,25 @@ import CommonCrypto
 class NetworkManager: NetworkManagerProtocol {
     
     static let shared = NetworkManager()
+    var offset = 0
     
-    func getHeroesList(_ completion: @escaping HeroesListHandler) {
-        let url = Constants.marvelBaseEndPoint + Constants.marvelCharactersEndPoint
-        AF.request(url, parameters: getRequestParameters()).responseDecodable { (response: DataResponse<HeroesListResponseModel>) in
+    func getHeroesList(offset: Int, completion: @escaping HeroesListHandler) {
+        let url = Endpoints.marvelBaseEndPoint + Endpoints.marvelCharactersEndPoint
+        AF.request(url, parameters: getRequestParameters(offset: self.offset)).responseDecodable { (response: DataResponse<HeroesListResponseModel>) in
+            self.offset += response.value?.data.count ?? 0
             guard let heroes = response.value?.data.results else { return}
             completion(heroes)
         }
-    /*    AF.request(url, parameters: getRequestParameters()).responseJSON { response in
-            /* if let json = response.result.value {
-             
-             completion(json)
-             }*/
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                let photoObject = try? JSONDecoder().decode(HeroesListResponseModel.self, from: data)
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
-        }*/
     }
 
     let ts = NSDate().timeIntervalSince1970.description
     
-    func getRequestParameters() -> Parameters{
+    func getRequestParameters(offset: Int) -> Parameters{
         let params: Parameters = [
-            "apikey": Constants.marvelPublicApiKey,
+            "apikey": Endpoints.marvelPublicApiKey,
             "ts": ts,
-            "hash": (ts + Constants.marvelPrivateApiKey + Constants.marvelPublicApiKey).MD5,
-            //"limit" : limit,
-            // "offset" : offset,
+            "hash": (ts + Endpoints.marvelPrivateApiKey + Endpoints.marvelPublicApiKey).MD5,
+            "offset" : offset
         ]
         return params
     }

@@ -6,4 +6,11 @@
 //  Copyright © 2018 Aleix Cos. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIView {
+    func roundedBy(_ radius: CGFloat) {
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
+}

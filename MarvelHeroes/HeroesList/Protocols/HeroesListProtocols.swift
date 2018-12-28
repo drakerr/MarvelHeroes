@@ -13,6 +13,9 @@ protocol HeroesListViewProtocol: class {
 
     // PRESENTER -> VIEW
     func showHeroes(_ heroes:[Heroe])
+    func showHUD()
+    func hideHUD()
+
 }
 
 protocol HeroesListRouterProtocol: class {
@@ -28,6 +31,7 @@ protocol HeroesListPresenterProtocol: class {
 
     // VIEW -> PRESENTER
     func viewDidLoad()
+    func collectionScrolledBottom()
 }
 
 protocol HeroesListInteractorOutputProtocol: class {

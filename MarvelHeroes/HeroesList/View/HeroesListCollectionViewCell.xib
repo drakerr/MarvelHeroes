@@ -23,24 +23,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="226" height="179"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5DW-Kq-cwu">
-                                <rect key="frame" x="0.0" y="0.0" width="226" height="148.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="226" height="179"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6S-dl-RbX">
-                                <rect key="frame" x="10" y="153.5" width="206" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fZ-Gx-3Sk">
+                                <rect key="frame" x="0.0" y="139" width="226" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6S-dl-RbX">
+                                        <rect key="frame" x="10" y="0.0" width="206" height="40"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.040430826789999999" green="0.056739060709999997" blue="0.078738839290000001" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="3Ur-jc-7Xk" firstAttribute="bottom" secondItem="z6S-dl-RbX" secondAttribute="bottom" id="CiW-Kz-agJ"/>
+                                    <constraint firstItem="3Ur-jc-7Xk" firstAttribute="trailing" secondItem="z6S-dl-RbX" secondAttribute="trailing" constant="10" id="OTB-cb-La0"/>
+                                    <constraint firstItem="z6S-dl-RbX" firstAttribute="leading" secondItem="3Ur-jc-7Xk" secondAttribute="leading" constant="10" id="VAb-aR-H0D"/>
+                                    <constraint firstItem="z6S-dl-RbX" firstAttribute="top" secondItem="3Ur-jc-7Xk" secondAttribute="top" id="hAS-Ay-NZs"/>
+                                    <constraint firstAttribute="height" constant="40" id="tFU-5b-og4"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="3Ur-jc-7Xk"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5DW-Kq-cwu" firstAttribute="top" secondItem="Loh-ff-U20" secondAttribute="top" id="0U6-iu-bwb"/>
                             <constraint firstAttribute="trailing" secondItem="5DW-Kq-cwu" secondAttribute="trailing" id="9Z7-oM-EQI"/>
-                            <constraint firstAttribute="bottom" secondItem="z6S-dl-RbX" secondAttribute="bottom" constant="5" id="A7r-VZ-FlL"/>
                             <constraint firstItem="5DW-Kq-cwu" firstAttribute="leading" secondItem="Loh-ff-U20" secondAttribute="leading" id="AW3-Rh-3kn"/>
-                            <constraint firstItem="z6S-dl-RbX" firstAttribute="centerX" secondItem="Loh-ff-U20" secondAttribute="centerX" id="FLm-vh-UOG"/>
-                            <constraint firstAttribute="trailing" secondItem="z6S-dl-RbX" secondAttribute="trailing" constant="10" id="Ldl-Pn-qut"/>
-                            <constraint firstItem="z6S-dl-RbX" firstAttribute="top" secondItem="5DW-Kq-cwu" secondAttribute="bottom" constant="5" id="y0z-S4-hag"/>
+                            <constraint firstAttribute="trailing" secondItem="7fZ-Gx-3Sk" secondAttribute="trailing" id="Kz5-o7-dnu"/>
+                            <constraint firstAttribute="bottom" secondItem="5DW-Kq-cwu" secondAttribute="bottom" id="PKt-b8-hv1"/>
+                            <constraint firstAttribute="bottom" secondItem="7fZ-Gx-3Sk" secondAttribute="bottom" id="Qdh-RQ-uaX"/>
+                            <constraint firstItem="7fZ-Gx-3Sk" firstAttribute="leading" secondItem="Loh-ff-U20" secondAttribute="leading" id="cRd-Y5-VY6"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -54,6 +68,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="226" height="179"/>
             <connections>
+                <outlet property="cellContentView" destination="Loh-ff-U20" id="cTT-qt-5Z4"/>
                 <outlet property="imageView" destination="5DW-Kq-cwu" id="QQW-nH-YwL"/>
                 <outlet property="titleLabel" destination="z6S-dl-RbX" id="FkH-h8-TQf"/>
             </connections>

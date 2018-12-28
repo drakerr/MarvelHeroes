@@ -7,19 +7,29 @@
 //
 
 class HeroesListPresenter: HeroesListPresenterProtocol {
+    
     var router: HeroesListRouterProtocol?
     weak var view: HeroesListViewProtocol?
     var interactor: HeroesListInteractorInputProtocol?
 
     func viewDidLoad() {
-        interactor?.retrieveHeroesList()
+        retrieveHeroesList()
     }
     
+    func collectionScrolledBottom() {
+        retrieveHeroesList()
+    }
+    
+    func retrieveHeroesList(){
+        view?.showHUD()
+        interactor?.retrieveHeroesList()
+    }
     
 }
 
 extension HeroesListPresenter: HeroesListInteractorOutputProtocol{
     func didRetrieveHeroes(_ heroes: [Heroe]) {
         view?.showHeroes(heroes)
+        view?.hideHUD()
     }
 }

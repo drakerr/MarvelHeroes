@@ -7,21 +7,43 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class HeroesListViewController: UIViewController {
     var presenter: HeroesListPresenterProtocol?
-    
+    let hud = JGProgressHUD(style: .dark)
+
     @IBOutlet weak var collectionView: HeroesListCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Heroes"
+        hud.textLabel.text = "Loading"
+        view.backgroundColor = AppColors.mainBlack
+        collectionView.backgroundColor = AppColors.mainBlack
+
+        collectionView.heroesListCVDelegate = self
         presenter?.viewDidLoad()
     }
 }
 
 extension HeroesListViewController: HeroesListViewProtocol{
+    func showHUD() {
+        hud.show(in: view)
+    }
+    
+    func hideHUD() {
+        hud.dismiss()
+    }
+    
     func showHeroes(_ heroes: [Heroe]) {
-        collectionView.heroesList = heroes
+        collectionView.heroesList += heroes
         collectionView.reloadData()
+    }
+}
+
+extension HeroesListViewController: HeroesListCollectionViewDelegate{
+    func willDisplayLastCell() {
+        presenter?.collectionScrolledBottom()
     }
 }
