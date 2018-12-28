@@ -10,10 +10,12 @@ import UIKit
 
 protocol HeroesListCollectionViewDelegate: class {
     func willDisplayLastCell()
+    func didSelectHero(_ hero: Hero)
+
 }
 
 class HeroesListCollectionView: UICollectionView {
-    var heroesList : [Heroe] = []
+    var heroesList : [Hero] = []
     weak var heroesListCVDelegate: HeroesListCollectionViewDelegate?
     
     let lineSpacing: CGFloat = 5
@@ -34,9 +36,9 @@ extension HeroesListCollectionView: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let heroe = heroesList[indexPath.row]
+        let hero = heroesList[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeroesListCollectionViewCell.identifier, for: indexPath) as! HeroesListCollectionViewCell
-        cell.configureWithHeroe(heroe)
+        cell.configureWithHeroe(hero)
         return cell
     }
     
@@ -47,6 +49,11 @@ extension HeroesListCollectionView: UICollectionViewDelegate{
         if (indexPath.item == heroesList.count - 1) {
             heroesListCVDelegate?.willDisplayLastCell()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let hero = heroesList[indexPath.row]
+        heroesListCVDelegate?.didSelectHero(hero)
     }
 }
 

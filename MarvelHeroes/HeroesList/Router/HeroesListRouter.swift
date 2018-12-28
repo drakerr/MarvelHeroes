@@ -34,9 +34,12 @@ class HeroesListRouter: HeroesListRouterProtocol{
         return UIStoryboard(name: "Main", bundle: Bundle.main)
     }
     
-    static func goToDetail() -> UIViewController {
-        
+    func pushToHeroDetail(_ hero: Hero, from view: HeroesListViewProtocol) {
+        let heroDetail = HeroDetailRouter.createHeroDetailModule(forHero: hero)
+        if let sourceView = view as? UIViewController {
+            sourceView.navigationController?.pushViewController(heroDetail, animated: true)
+        }
     }
-    
+
     
 }

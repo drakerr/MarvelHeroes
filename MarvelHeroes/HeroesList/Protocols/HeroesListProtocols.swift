@@ -12,7 +12,7 @@ protocol HeroesListViewProtocol: class {
     var presenter: HeroesListPresenterProtocol? { get set }
 
     // PRESENTER -> VIEW
-    func showHeroes(_ heroes:[Heroe])
+    func showHeroes(_ heroes:[Hero])
     func showHUD()
     func hideHUD()
 
@@ -21,7 +21,7 @@ protocol HeroesListViewProtocol: class {
 protocol HeroesListRouterProtocol: class {
     static func createHeroesListModule() -> UIViewController
     // PRESENTER -> ROUTER
-   // func presentPostDetailScreen(from view: PostListViewProtocol, forPost post: PostModel)
+    func pushToHeroDetail(_ hero: Hero, from view: HeroesListViewProtocol) 
 }
 
 protocol HeroesListPresenterProtocol: class {
@@ -32,11 +32,13 @@ protocol HeroesListPresenterProtocol: class {
     // VIEW -> PRESENTER
     func viewDidLoad()
     func collectionScrolledBottom()
+    func showHeroDetail(_ hero: Hero)
+
 }
 
 protocol HeroesListInteractorOutputProtocol: class {
     // INTERACTOR -> PRESENTER
-    func didRetrieveHeroes(_ heroes: [Heroe])
+    func didRetrieveHeroes(_ heroes: [Hero])
    // func onError()
 }
 

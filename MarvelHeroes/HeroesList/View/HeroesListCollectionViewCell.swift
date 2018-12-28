@@ -22,7 +22,7 @@ class HeroesListCollectionViewCell: UICollectionViewCell {
         cellContentView.roundedBy(10)
     }
     
-    func configureWithHeroe(_ heroe: Heroe){
+    func configureWithHeroe(_ heroe: Hero){
         titleLabel.text = heroe.name
         if let imageUrl = heroe.imageUrl{
             imageView.kf.setImage(with: URL(string: imageUrl))

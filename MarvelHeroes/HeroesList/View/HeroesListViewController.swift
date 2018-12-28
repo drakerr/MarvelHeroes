@@ -36,7 +36,7 @@ extension HeroesListViewController: HeroesListViewProtocol{
         hud.dismiss()
     }
     
-    func showHeroes(_ heroes: [Heroe]) {
+    func showHeroes(_ heroes: [Hero]) {
         collectionView.heroesList += heroes
         collectionView.reloadData()
     }
@@ -45,5 +45,8 @@ extension HeroesListViewController: HeroesListViewProtocol{
 extension HeroesListViewController: HeroesListCollectionViewDelegate{
     func willDisplayLastCell() {
         presenter?.collectionScrolledBottom()
+    }
+    func didSelectHero(_ hero: Hero) {
+        presenter?.showHeroDetail(hero)
     }
 }

@@ -8,8 +8,8 @@
 
 import Foundation
 
-typealias HeroesListHandler = ([Heroe]) -> Void
+typealias HeroesListHandler = ([Hero]) -> Void
 
 protocol NetworkManagerProtocol{
-    func getHeroesList(offset: Int, completion: @escaping HeroesListHandler) 
+    func getHeroesList(_ completion: @escaping HeroesListHandler) 
 }

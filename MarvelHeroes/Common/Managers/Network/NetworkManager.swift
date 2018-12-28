@@ -13,9 +13,9 @@ import CommonCrypto
 class NetworkManager: NetworkManagerProtocol {
     
     static let shared = NetworkManager()
-    var offset = 0
+    private var offset = 0
     
-    func getHeroesList(offset: Int, completion: @escaping HeroesListHandler) {
+    func getHeroesList(_ completion: @escaping HeroesListHandler) {
         let url = Endpoints.marvelBaseEndPoint + Endpoints.marvelCharactersEndPoint
         AF.request(url, parameters: getRequestParameters(offset: self.offset)).responseDecodable { (response: DataResponse<HeroesListResponseModel>) in
             self.offset += response.value?.data.count ?? 0

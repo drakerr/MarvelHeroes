@@ -17,5 +17,5 @@ struct CharacterData: Decodable{
     let limit: Int
     let total: Int
     let count: Int
-    let results: [Heroe]
+    let results: [Hero]
 }

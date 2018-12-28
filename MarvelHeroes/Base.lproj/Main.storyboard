@@ -48,5 +48,36 @@
             </objects>
             <point key="canvasLocation" x="1071.2" y="133.5832083958021"/>
         </scene>
+        <!--Hero Detail View Controller-->
+        <scene sceneID="5Mf-mv-2n1">
+            <objects>
+                <viewController storyboardIdentifier="HeroDetailViewController" id="xgQ-bo-78A" customClass="HeroDetailViewController" customModule="MarvelHeroes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cHX-6H-NnN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dWj-SN-Kpz">
+                                <rect key="frame" x="67.5" y="269.5" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="aEv-fB-UGS"/>
+                                    <constraint firstAttribute="height" constant="128" id="bJh-Q2-7As"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dWj-SN-Kpz" firstAttribute="centerY" secondItem="cHX-6H-NnN" secondAttribute="centerY" id="c0V-Mu-f2Q"/>
+                            <constraint firstItem="dWj-SN-Kpz" firstAttribute="centerX" secondItem="cHX-6H-NnN" secondAttribute="centerX" id="oFq-g2-zzF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IUU-2M-N27"/>
+                    </view>
+                    <connections>
+                        <outlet property="heroImageView" destination="dWj-SN-Kpz" id="iRP-mB-PSw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZUT-RJ-E3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1774" y="134"/>
+        </scene>
     </scenes>
 </document>

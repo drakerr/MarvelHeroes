@@ -7,7 +7,6 @@
 //
 
 class HeroesListPresenter: HeroesListPresenterProtocol {
-    
     var router: HeroesListRouterProtocol?
     weak var view: HeroesListViewProtocol?
     var interactor: HeroesListInteractorInputProtocol?
@@ -25,10 +24,14 @@ class HeroesListPresenter: HeroesListPresenterProtocol {
         interactor?.retrieveHeroesList()
     }
     
+    func showHeroDetail(_ hero: Hero) {
+        router?.pushToHeroDetail(hero, from: view!)
+    }
+
 }
 
 extension HeroesListPresenter: HeroesListInteractorOutputProtocol{
-    func didRetrieveHeroes(_ heroes: [Heroe]) {
+    func didRetrieveHeroes(_ heroes: [Hero]) {
         view?.showHeroes(heroes)
         view?.hideHUD()
     }
