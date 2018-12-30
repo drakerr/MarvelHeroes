@@ -17,4 +17,31 @@ struct Hero: Decodable {
         guard let imagePath = thumbnail["path"], let imageExtension = thumbnail["extension"] else {return nil}
         return imagePath + "." + imageExtension
     }
+    let urls: [Url]
 }
+
+struct Url: Decodable {
+    let type: String
+    let url: String
+    var enumType: UrlType {
+        let urlType = UrlType(rawValue: type)
+        return urlType ?? . detail
+    }
+    
+    
+    enum UrlType: String, Decodable {
+        init?(string: String) {
+            switch string.lowercased() {
+            case "wiki": self = .wiki
+            case "detail": self = .detail
+            default: return nil
+            }
+        }
+        case wiki
+        case detail
+
+    }
+
+}
+
+

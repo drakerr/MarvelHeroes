@@ -11,6 +11,8 @@ import Kingfisher
 
 class HeroDetailViewController: UIViewController {
     @IBOutlet weak var heroImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var presenter: HeroDetailPresenterProtocol?
     
@@ -22,6 +24,8 @@ class HeroDetailViewController: UIViewController {
 
 extension HeroDetailViewController: HeroDetailViewProtocol{
     func showHeroDetail(_ hero: Hero) {
+        nameLabel.text = hero.name
+        descriptionLabel.text = hero.description
         if let imageUrl = hero.imageUrl{
             heroImageView.kf.setImage(with: URL(string: imageUrl))
         }
