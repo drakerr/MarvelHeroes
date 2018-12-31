@@ -13,6 +13,8 @@ protocol HeroDetailViewProtocol: class {
 
     // PRESENTER -> VIEW
     func showHeroDetail(_ hero: Hero)
+    func getHeroWikiUrl(_ url: String?)
+
 }
 
 protocol HeroDetailRouterProtocol: class {

@@ -13,7 +13,14 @@ class HeroDetailPresenter: HeroDetailPresenterProtocol{
     
     func viewDidLoad() {
         view?.showHeroDetail(hero!)
+        view?.getHeroWikiUrl(heroUrl())
+        
     }
     
-    
+    func heroUrl() -> String?{
+        for url in hero!.urls where url.enumType == .wiki {
+            return url.url
+        }
+        return nil
+    }
 }

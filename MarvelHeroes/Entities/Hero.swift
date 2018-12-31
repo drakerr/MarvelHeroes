@@ -23,6 +23,7 @@ struct Hero: Decodable {
 struct Url: Decodable {
     let type: String
     let url: String
+    
     var enumType: UrlType {
         let urlType = UrlType(rawValue: type)
         return urlType ?? . detail
@@ -34,12 +35,12 @@ struct Url: Decodable {
             switch string.lowercased() {
             case "wiki": self = .wiki
             case "detail": self = .detail
-            default: return nil
+            default: self = .other
             }
         }
         case wiki
         case detail
-
+        case other
     }
 
 }

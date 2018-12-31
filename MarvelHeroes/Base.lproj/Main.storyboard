@@ -99,6 +99,16 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0c-tl-xpW">
+                                                <rect key="frame" x="185" y="102.5" width="75" height="32"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="Wiki page">
+                                                    <color key="titleColor" red="0.33725490200000002" green="0.4823529412" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="visitWikiButtonClicked:" destination="xgQ-bo-78A" eventType="touchUpInside" id="B7T-ie-lR0"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="g7c-Tk-uBY" secondAttribute="trailing" constant="20" id="2ai-z4-4qy"/>
@@ -106,9 +116,11 @@
                                             <constraint firstItem="dWj-SN-Kpz" firstAttribute="leading" secondItem="LgP-Z1-bOq" secondAttribute="leading" constant="20" id="8PP-WP-m4y"/>
                                             <constraint firstAttribute="trailing" secondItem="lsS-f1-IgP" secondAttribute="trailing" constant="20" id="TGe-Dy-KNc"/>
                                             <constraint firstItem="dWj-SN-Kpz" firstAttribute="top" secondItem="LgP-Z1-bOq" secondAttribute="top" constant="20" id="X8r-TZ-oue"/>
-                                            <constraint firstItem="g7c-Tk-uBY" firstAttribute="leading" secondItem="dWj-SN-Kpz" secondAttribute="trailing" constant="15" id="eeA-2d-snX"/>
+                                            <constraint firstItem="B0c-tl-xpW" firstAttribute="leading" secondItem="dWj-SN-Kpz" secondAttribute="trailing" constant="15" id="dXj-eQ-awP"/>
+                                            <constraint firstItem="g7c-Tk-uBY" firstAttribute="leading" secondItem="dWj-SN-Kpz" secondAttribute="trailing" constant="15" id="gLk-AW-OcM"/>
                                             <constraint firstAttribute="bottom" secondItem="lsS-f1-IgP" secondAttribute="bottom" constant="20" id="jMu-Id-Ndf"/>
                                             <constraint firstItem="lsS-f1-IgP" firstAttribute="leading" secondItem="LgP-Z1-bOq" secondAttribute="leading" constant="20" id="nN4-pD-aUz"/>
+                                            <constraint firstItem="B0c-tl-xpW" firstAttribute="top" secondItem="g7c-Tk-uBY" secondAttribute="bottom" constant="5" id="y01-26-zTN"/>
                                             <constraint firstItem="lsS-f1-IgP" firstAttribute="top" secondItem="dWj-SN-Kpz" secondAttribute="bottom" constant="47" id="yTb-pJ-THy"/>
                                         </constraints>
                                     </view>
@@ -136,6 +148,7 @@
                         <outlet property="descriptionLabel" destination="x4W-nQ-frZ" id="c5g-2b-9AF"/>
                         <outlet property="heroImageView" destination="dWj-SN-Kpz" id="iRP-mB-PSw"/>
                         <outlet property="nameLabel" destination="g7c-Tk-uBY" id="f3K-fM-xpf"/>
+                        <outlet property="wikiButton" destination="B0c-tl-xpW" id="zLp-ch-dIl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUT-RJ-E3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
