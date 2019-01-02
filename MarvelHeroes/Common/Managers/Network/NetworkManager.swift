@@ -13,20 +13,34 @@ import CommonCrypto
 class NetworkManager: NetworkManagerProtocol {
     
     static let shared = NetworkManager()
-    private var offset = 0
     
     func getHeroesList(_ completion: @escaping HeroesListHandler) {
         let url = Endpoints.marvelBaseEndPoint + Endpoints.marvelCharactersEndPoint
-        AF.request(url, parameters: getRequestParameters(offset: self.offset)).responseDecodable { (response: DataResponse<HeroesListResponseModel>) in
-            self.offset += response.value?.data.count ?? 0
+        AF.request(url, parameters: getRequestParameters(offset: self.charactersOffset)).responseDecodable { (response: DataResponse<HeroesListResponseModel>) in
+            self.charactersOffset += response.value?.data.count ?? 0
             guard let heroes = response.value?.data.results else { return}
             completion(heroes)
         }
     }
-
-    let ts = NSDate().timeIntervalSince1970.description
     
-    func getRequestParameters(offset: Int) -> Parameters{
+    func getHeroComics(id: Int, completion: @escaping HeroComicsHandler){
+        let comicsEndPoint = String(format: Endpoints.marvelCharacterComicsEndPoint, id)
+        let url = Endpoints.marvelBaseEndPoint + comicsEndPoint
+
+        AF.request(url, parameters: getRequestParameters(offset: 0)).responseDecodable { (response: DataResponse<HeroComicsResponseModel>) in
+            self.comicsOffset += response.value?.data.count ?? 0
+            guard let comics = response.value?.data.results else { return}
+            completion(comics)
+        }
+
+    }
+    
+    
+    private let ts = NSDate().timeIntervalSince1970.description
+    private var charactersOffset = 0
+    private var comicsOffset = 0
+
+    private func getRequestParameters(offset: Int) -> Parameters{
         let params: Parameters = [
             "apikey": Endpoints.marvelPublicApiKey,
             "ts": ts,

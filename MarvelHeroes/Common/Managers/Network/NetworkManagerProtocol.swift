@@ -9,7 +9,10 @@
 import Foundation
 
 typealias HeroesListHandler = ([Hero]) -> Void
+typealias HeroComicsHandler = ([Comic]) -> Void
 
 protocol NetworkManagerProtocol{
-    func getHeroesList(_ completion: @escaping HeroesListHandler) 
+    func getHeroesList(_ completion: @escaping HeroesListHandler)
+    func getHeroComics(id: Int, completion: @escaping HeroComicsHandler)
+
 }

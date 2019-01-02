@@ -14,6 +14,7 @@ protocol HeroDetailViewProtocol: class {
     // PRESENTER -> VIEW
     func showHeroDetail(_ hero: Hero)
     func getHeroWikiUrl(_ url: String?)
+    func showComics(_ comics: [Comic])
 
 }
 
@@ -24,8 +25,24 @@ protocol HeroDetailRouterProtocol: class {
 protocol HeroDetailPresenterProtocol: class {
     var view: HeroDetailViewProtocol? { get set }
     var router: HeroDetailRouterProtocol? { get set }
+    var interactor: HeroDetailInteractorInputProtocol? {get set}
     var hero: Hero? { get set }
 
     // VIEW -> PRESENTER
     func viewDidLoad()
+}
+
+protocol HeroDetailInteractorOutputProtocol: class {
+    // INTERACTOR -> PRESENTER
+    func didRetrieveComicList(_ comics: [Comic])
+    // func onError()
+}
+
+protocol HeroDetailInteractorInputProtocol: class {
+    var presenter: HeroDetailInteractorOutputProtocol? { get set }
+    var networkManager: NetworkManagerProtocol? { get set }
+    //var remoteDatamanager: PostListRemoteDataManagerInputProtocol? { get set }
+    
+    // PRESENTER -> INTERACTOR
+    func retrieveHeroComics(id: Int)
 }

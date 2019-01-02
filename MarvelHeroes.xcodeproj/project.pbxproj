@@ -25,6 +25,9 @@
 		04B5249A21D3A85300EBA559 /* HeroesListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5249821D3A85300EBA559 /* HeroesListCollectionViewCell.swift */; };
 		04B5249B21D3A85300EBA559 /* HeroesListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B5249921D3A85300EBA559 /* HeroesListCollectionViewCell.xib */; };
 		04B5249D21D3AD4800EBA559 /* HeroesListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5249C21D3AD4800EBA559 /* HeroesListCollectionView.swift */; };
+		04B7A2E821DD152300AC8B14 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B7A2E721DD152300AC8B14 /* Comic.swift */; };
+		04B7A2EB21DD190200AC8B14 /* HeroComicsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B7A2EA21DD190200AC8B14 /* HeroComicsResponseModel.swift */; };
+		04B7A2EE21DD1A5700AC8B14 /* HeroDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B7A2ED21DD1A5700AC8B14 /* HeroDetailInteractor.swift */; };
 		04D1A72B21D14700005A06C3 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1A72A21D14700005A06C3 /* Hero.swift */; };
 		04D1A72E21D14F8C005A06C3 /* HeroesListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1A72D21D14F8C005A06C3 /* HeroesListResponseModel.swift */; };
 		04D5320B21D6324900D35E0A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5320A21D6324900D35E0A /* UIView+Extensions.swift */; };
@@ -80,6 +83,9 @@
 		04B5249821D3A85300EBA559 /* HeroesListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListCollectionViewCell.swift; sourceTree = "<group>"; };
 		04B5249921D3A85300EBA559 /* HeroesListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesListCollectionViewCell.xib; sourceTree = "<group>"; };
 		04B5249C21D3AD4800EBA559 /* HeroesListCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListCollectionView.swift; sourceTree = "<group>"; };
+		04B7A2E721DD152300AC8B14 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		04B7A2EA21DD190200AC8B14 /* HeroComicsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroComicsResponseModel.swift; sourceTree = "<group>"; };
+		04B7A2ED21DD1A5700AC8B14 /* HeroDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailInteractor.swift; sourceTree = "<group>"; };
 		04D1A72A21D14700005A06C3 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		04D1A72D21D14F8C005A06C3 /* HeroesListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListResponseModel.swift; sourceTree = "<group>"; };
 		04D5320A21D6324900D35E0A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -246,9 +252,9 @@
 		048C8BF021CC2774000DDA00 /* MarvelHeroes */ = {
 			isa = PBXGroup;
 			children = (
-				04D5321021D6401D00D35E0A /* HeroeDetail */,
 				04D1A72921D146E2005A06C3 /* Entities */,
 				0467265F21CD0B2600C0EA52 /* HeroesList */,
+				04D5321021D6401D00D35E0A /* HeroeDetail */,
 				0467265521CCFDFF00C0EA52 /* Common */,
 				048C8BF121CC2774000DDA00 /* AppDelegate.swift */,
 				048C8BF521CC2774000DDA00 /* Main.storyboard */,
@@ -275,10 +281,27 @@
 			path = MarvelHeroesUITests;
 			sourceTree = "<group>";
 		};
+		04B7A2E921DD18EC00AC8B14 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				04B7A2EA21DD190200AC8B14 /* HeroComicsResponseModel.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		04B7A2EC21DD1A3A00AC8B14 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				04B7A2ED21DD1A5700AC8B14 /* HeroDetailInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		04D1A72921D146E2005A06C3 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				04D1A72A21D14700005A06C3 /* Hero.swift */,
+				04B7A2E721DD152300AC8B14 /* Comic.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -313,6 +336,8 @@
 		04D5321021D6401D00D35E0A /* HeroeDetail */ = {
 			isa = PBXGroup;
 			children = (
+				04B7A2EC21DD1A3A00AC8B14 /* Interactor */,
+				04B7A2E921DD18EC00AC8B14 /* Entities */,
 				04D5321A21D6442200D35E0A /* Presenter */,
 				04D5321721D6431E00D35E0A /* Router */,
 				04D5321421D6426000D35E0A /* Protocols */,
@@ -582,6 +607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0467265921CCFF2400C0EA52 /* NetworkManager.swift in Sources */,
+				04B7A2EB21DD190200AC8B14 /* HeroComicsResponseModel.swift in Sources */,
 				0467266B21CD0EF200C0EA52 /* HeroesListInteractor.swift in Sources */,
 				04D5321621D6427C00D35E0A /* HeroDetailProtocols.swift in Sources */,
 				0467266E21CD121100C0EA52 /* HeroesListRouter.swift in Sources */,
@@ -597,8 +623,10 @@
 				0467265B21CD001100C0EA52 /* NetworkManagerProtocol.swift in Sources */,
 				04D5320B21D6324900D35E0A /* UIView+Extensions.swift in Sources */,
 				0467265D21CD026700C0EA52 /* Endpoints.swift in Sources */,
+				04B7A2E821DD152300AC8B14 /* Comic.swift in Sources */,
 				04D5321921D6432C00D35E0A /* HeroDetailRouter.swift in Sources */,
 				04D5321C21D644C200D35E0A /* HeroDetailPresenter.swift in Sources */,
+				04B7A2EE21DD1A5700AC8B14 /* HeroDetailInteractor.swift in Sources */,
 				0467266821CD0E7B00C0EA52 /* HeroesListPresenter.swift in Sources */,
 				04D5321321D6422A00D35E0A /* HeroDetailViewController.swift in Sources */,
 			);

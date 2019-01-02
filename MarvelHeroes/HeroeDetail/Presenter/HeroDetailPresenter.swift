@@ -8,13 +8,18 @@
 
 class HeroDetailPresenter: HeroDetailPresenterProtocol{
     weak var view: HeroDetailViewProtocol?
+    var interactor: HeroDetailInteractorInputProtocol?
     var router: HeroDetailRouterProtocol?
     var hero: Hero?
     
     func viewDidLoad() {
         view?.showHeroDetail(hero!)
         view?.getHeroWikiUrl(heroUrl())
-        
+        retrieveComics()
+    }
+    
+    func retrieveComics(){
+        interactor?.retrieveHeroComics(id: hero!.id)
     }
     
     func heroUrl() -> String?{
@@ -23,4 +28,11 @@ class HeroDetailPresenter: HeroDetailPresenterProtocol{
         }
         return nil
     }
+}
+
+extension HeroDetailPresenter: HeroDetailInteractorOutputProtocol{
+    func didRetrieveComicList(_ comics: [Comic]) {
+        view?.showComics(comics)
+    }
+    
 }
