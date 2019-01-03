@@ -18,6 +18,7 @@ struct Hero: Decodable {
         return imagePath + "." + imageExtension
     }
     let urls: [Url]
+    let comics: ComicList
 }
 
 struct Url: Decodable {
@@ -28,7 +29,6 @@ struct Url: Decodable {
         let urlType = UrlType(rawValue: type)
         return urlType ?? . detail
     }
-    
     
     enum UrlType: String, Decodable {
         init?(string: String) {
@@ -42,7 +42,10 @@ struct Url: Decodable {
         case detail
         case other
     }
+}
 
+struct ComicList: Decodable {
+    let available: Int
 }
 
 

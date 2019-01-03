@@ -17,11 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-    
-        UINavigationBar.appearance().barTintColor = AppColors.mainBlack
-        UINavigationBar.appearance().tintColor = AppColors.mainWhite
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: AppColors.mainWhite]
-        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().barStyle = .black
 
         let heroesList = HeroesListRouter.createHeroesListModule()
         window = UIWindow(frame: UIScreen.main.bounds)

@@ -26,7 +26,7 @@ class HeroDetailRouter: HeroDetailRouterProtocol {
             interactor.presenter = presenter
             interactor.networkManager = networkManager
 
-            return viewController
+            return view
         }
         return UIViewController()
 

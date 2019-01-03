@@ -17,11 +17,9 @@ class HeroesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         title = "Heroes"
         hud.textLabel.text = "Loading"
-        view.backgroundColor = AppColors.mainBlack
-        collectionView.backgroundColor = AppColors.mainBlack
-
         collectionView.heroesListCVDelegate = self
         presenter?.viewDidLoad()
     }

@@ -24,13 +24,14 @@ class HeroesListRouter: HeroesListRouterProtocol{
             presenter.interactor = interactor
             interactor.presenter = presenter
             interactor.networkManager = networkManager
-            return UINavigationController(rootViewController: view)
+
+            return navigationControllerForView(view)
         }
         
         return UIViewController()
     }
     
-    static var mainStoryboard: UIStoryboard {
+    private static var mainStoryboard: UIStoryboard {
         return UIStoryboard(name: "Main", bundle: Bundle.main)
     }
     
@@ -40,6 +41,33 @@ class HeroesListRouter: HeroesListRouterProtocol{
             sourceView.navigationController?.pushViewController(heroDetail, animated: true)
         }
     }
-
     
+    private static func navigationControllerForView(_ view: UIViewController) -> UINavigationController{
+        let navigation = UINavigationController(rootViewController: view)
+        navigation.navigationBar.isTranslucent = false
+        navigation.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: AppColors.mainWhite]
+        navigation.navigationBar.tintColor = .darkGray
+
+      /*  navigation.navigationBar.setBackgroundImage(UIColor.clear.as1ptImage(), for: .default)
+        navigation.navigationBar.shadowImage = UIColor.darkGray.as1ptImage()
+        navigation.navigationBar.tintColor = .darkGray
+        //navigation.navigationBar.barTintColor = AppColors.mainBlack
+        navigation.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: AppColors.mainWhite]*/
+
+        return navigation
+    }
+}
+
+fileprivate extension UIColor {
+    /// Converts this `UIColor` instance to a 1x1 `UIImage` instance and returns it.
+    ///
+    /// - Returns: `self` as a 1x1 `UIImage`.
+    func as1ptImage() -> UIImage {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        setFill()
+        UIGraphicsGetCurrentContext()?.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+        let image = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
+        UIGraphicsEndImageContext()
+        return image
+    }
 }
