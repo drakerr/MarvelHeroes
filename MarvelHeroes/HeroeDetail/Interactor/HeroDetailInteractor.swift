@@ -12,10 +12,9 @@ class HeroDetailInteractor: HeroDetailInteractorInputProtocol{
     weak var presenter: HeroDetailInteractorOutputProtocol?
     var networkManager: NetworkManagerProtocol?
     
-    func retrieveHeroComics(id: Int) {
-        networkManager?.getHeroComics(id: id, completion: { [weak self] comics in
+    func retrieveHeroComics(id: Int, offset: Int) {
+        networkManager?.getHeroComics(id: id, offset: offset, completion: { [weak self] comics in
             self?.presenter?.didRetrieveComicList(comics)
         })
-        
     }
 }

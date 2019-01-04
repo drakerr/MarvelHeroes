@@ -8,8 +8,7 @@ target 'MarvelHeroes' do
   # Pods for MarvelHeroes
 	pod 'Alamofire', '~> 5.0.0.beta.1'
   	pod 'Kingfisher', '~> 5.0'
-	pod 'JGProgressHUD'
-    	pod 'SwiftGifOrigin', '~> 1.6.1'
+	pod 'SwiftGifOrigin', '~> 1.6.1'
 
   target 'MarvelHeroesTests' do
     inherit! :search_paths

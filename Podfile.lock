@@ -1,28 +1,24 @@
 PODS:
   - Alamofire (5.0.0.beta.1)
-  - JGProgressHUD (2.0.3)
   - Kingfisher (5.0.0)
   - SwiftGifOrigin (1.6.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0.beta.1)
-  - JGProgressHUD
   - Kingfisher (~> 5.0)
   - SwiftGifOrigin (~> 1.6.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - JGProgressHUD
     - Kingfisher
     - SwiftGifOrigin
 
 SPEC CHECKSUMS:
   Alamofire: 2ef6d6c984c5d21c366e9b41a9ae7dfee2b67a44
-  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   Kingfisher: 2b0dd651e4fe5a07305b8242fde56f8e2d410f58
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
 
-PODFILE CHECKSUM: 2450e4984becaf59398a56f9e53afff6cc57aa7a
+PODFILE CHECKSUM: 37a47ce8c42a65703ff62370afbea992cb3212c3
 
 COCOAPODS: 1.5.3

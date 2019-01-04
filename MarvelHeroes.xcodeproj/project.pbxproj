@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		04078ACF21DE3686006DCC1A /* HeroComicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04078ACD21DE3686006DCC1A /* HeroComicsCollectionViewCell.swift */; };
 		04078AD021DE3686006DCC1A /* HeroComicsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04078ACE21DE3686006DCC1A /* HeroComicsCollectionViewCell.xib */; };
+		0412503721DF8B5500C5BEF1 /* MarvelLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412503621DF8B5500C5BEF1 /* MarvelLoadingIndicator.swift */; };
+		0412503921DF8C4F00C5BEF1 /* marvel_loading_indicator.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0412503821DF8C4F00C5BEF1 /* marvel_loading_indicator.gif */; };
+		0412503B21DF8DC400C5BEF1 /* MarvelLoadingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0412503A21DF8DC400C5BEF1 /* MarvelLoadingIndicator.xib */; };
 		0467265921CCFF2400C0EA52 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467265821CCFF2400C0EA52 /* NetworkManager.swift */; };
 		0467265B21CD001100C0EA52 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467265A21CD001100C0EA52 /* NetworkManagerProtocol.swift */; };
 		0467265D21CD026700C0EA52 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467265C21CD026700C0EA52 /* Endpoints.swift */; };
@@ -63,6 +66,9 @@
 /* Begin PBXFileReference section */
 		04078ACD21DE3686006DCC1A /* HeroComicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroComicsCollectionViewCell.swift; sourceTree = "<group>"; };
 		04078ACE21DE3686006DCC1A /* HeroComicsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroComicsCollectionViewCell.xib; sourceTree = "<group>"; };
+		0412503621DF8B5500C5BEF1 /* MarvelLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelLoadingIndicator.swift; sourceTree = "<group>"; };
+		0412503821DF8C4F00C5BEF1 /* marvel_loading_indicator.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = marvel_loading_indicator.gif; sourceTree = "<group>"; };
+		0412503A21DF8DC400C5BEF1 /* MarvelLoadingIndicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarvelLoadingIndicator.xib; sourceTree = "<group>"; };
 		0467265821CCFF2400C0EA52 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0467265A21CD001100C0EA52 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		0467265C21CD026700C0EA52 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
@@ -147,9 +153,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0412503521DF8B2400C5BEF1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0412503621DF8B5500C5BEF1 /* MarvelLoadingIndicator.swift */,
+				0412503821DF8C4F00C5BEF1 /* marvel_loading_indicator.gif */,
+				0412503A21DF8DC400C5BEF1 /* MarvelLoadingIndicator.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0467265521CCFDFF00C0EA52 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0412503521DF8B2400C5BEF1 /* View */,
 				04D5320921D6323800D35E0A /* Extensions */,
 				0467265621CCFECE00C0EA52 /* Managers */,
 				0467265C21CD026700C0EA52 /* Endpoints.swift */,
@@ -505,8 +522,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0412503B21DF8DC400C5BEF1 /* MarvelLoadingIndicator.xib in Resources */,
 				048C8BFF21CC2776000DDA00 /* LaunchScreen.storyboard in Resources */,
 				04078AD021DE3686006DCC1A /* HeroComicsCollectionViewCell.xib in Resources */,
+				0412503921DF8C4F00C5BEF1 /* marvel_loading_indicator.gif in Resources */,
 				048C8BFC21CC2776000DDA00 /* Assets.xcassets in Resources */,
 				048C8BF721CC2774000DDA00 /* Main.storyboard in Resources */,
 				04B5249B21D3A85300EBA559 /* HeroesListCollectionViewCell.xib in Resources */,
@@ -556,14 +575,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MarvelHeroes/Pods-MarvelHeroes-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
 			);
@@ -631,6 +648,7 @@
 				048C8BFA21CC2774000DDA00 /* MarvelHeroes.xcdatamodeld in Sources */,
 				0467266221CD0C2000C0EA52 /* HeroesListViewController.swift in Sources */,
 				0467265B21CD001100C0EA52 /* NetworkManagerProtocol.swift in Sources */,
+				0412503721DF8B5500C5BEF1 /* MarvelLoadingIndicator.swift in Sources */,
 				04D5320B21D6324900D35E0A /* UIView+Extensions.swift in Sources */,
 				0467265D21CD026700C0EA52 /* Endpoints.swift in Sources */,
 				04B7A2E821DD152300AC8B14 /* Comic.swift in Sources */,

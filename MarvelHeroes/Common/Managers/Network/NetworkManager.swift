@@ -23,12 +23,11 @@ class NetworkManager: NetworkManagerProtocol {
         }
     }
     
-    func getHeroComics(id: Int, completion: @escaping HeroComicsHandler){
+    func getHeroComics(id: Int, offset: Int, completion: @escaping HeroComicsHandler){
         let comicsEndPoint = String(format: Endpoints.marvelCharacterComicsEndPoint, id)
         let url = Endpoints.marvelBaseEndPoint + comicsEndPoint
 
-        AF.request(url, parameters: getRequestParameters(offset: 0)).responseDecodable { (response: DataResponse<HeroComicsResponseModel>) in
-            self.comicsOffset += response.value?.data.count ?? 0
+        AF.request(url, parameters: getRequestParameters(offset: offset)).responseDecodable { (response: DataResponse<HeroComicsResponseModel>) in
             guard let comics = response.value?.data.results else { return}
             completion(comics)
         }
@@ -38,7 +37,6 @@ class NetworkManager: NetworkManagerProtocol {
     
     private let ts = NSDate().timeIntervalSince1970.description
     private var charactersOffset = 0
-    private var comicsOffset = 0
 
     private func getRequestParameters(offset: Int) -> Parameters{
         let params: Parameters = [

@@ -23,15 +23,20 @@ class HeroDetailViewController: UIViewController {
         return .lightContent
     }
 
+    lazy var loadingIndicator = MarvelLoadingIndicator()
     var presenter: HeroDetailPresenterProtocol?
     var wikiUrl: String?
     lazy var comics = [Comic]()
-
+    
+    private var hero: Hero?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.addSubview(loadingIndicator)
         presenter?.viewDidLoad()
         comicsCollectionView.dataSource = self
+        comicsCollectionView.delegate = self
+
         comicsCollectionView.register(UINib(nibName: String(describing: HeroComicsCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: HeroComicsCollectionViewCell.identifier)
 
     }
@@ -46,6 +51,15 @@ class HeroDetailViewController: UIViewController {
 }
 
 extension HeroDetailViewController: HeroDetailViewProtocol{
+    func showHUD() {
+        loadingIndicator.startAnimating()
+
+    }
+    
+    func hideHUD() {
+        loadingIndicator.stopAnimating()
+
+    }
     func showComics(_ comics: [Comic]) {
         self.comics += comics
         comicsCollectionView.reloadData()
@@ -61,6 +75,7 @@ extension HeroDetailViewController: HeroDetailViewProtocol{
     
     func showHeroDetail(_ hero: Hero) {
         title = hero.name
+        self.hero = hero
         nameLabel.text = hero.name
         descriptionLabel.text = hero.description
         descriptionView.isHidden = hero.description.isEmpty
@@ -86,5 +101,13 @@ extension HeroDetailViewController: UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeroComicsCollectionViewCell.identifier, for: indexPath) as! HeroComicsCollectionViewCell
         cell.configureCellWithComic(comic)
         return cell
+    }
+}
+
+extension HeroDetailViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (indexPath.item == comics.count - 1 && comics.count != hero?.comics.available) {
+            presenter?.retrieveComicsWithOffset(comics.count)
+        }
     }
 }

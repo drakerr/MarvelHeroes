@@ -13,6 +13,6 @@ typealias HeroComicsHandler = ([Comic]) -> Void
 
 protocol NetworkManagerProtocol{
     func getHeroesList(_ completion: @escaping HeroesListHandler)
-    func getHeroComics(id: Int, completion: @escaping HeroComicsHandler)
+    func getHeroComics(id: Int, offset:Int, completion: @escaping HeroComicsHandler)
 
 }

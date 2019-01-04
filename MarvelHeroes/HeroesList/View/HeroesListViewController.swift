@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import JGProgressHUD
 
 class HeroesListViewController: UIViewController {
     var presenter: HeroesListPresenterProtocol?
-    let hud = JGProgressHUD(style: .dark)
+    lazy var loadingIndicator = MarvelLoadingIndicator()
 
     @IBOutlet weak var collectionView: HeroesListCollectionView!
     
@@ -19,19 +18,19 @@ class HeroesListViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         title = "Heroes"
-        hud.textLabel.text = "Loading"
         collectionView.heroesListCVDelegate = self
+        view.addSubview(loadingIndicator)
         presenter?.viewDidLoad()
     }
 }
 
 extension HeroesListViewController: HeroesListViewProtocol{
     func showHUD() {
-        hud.show(in: view)
+        loadingIndicator.startAnimating()
     }
     
     func hideHUD() {
-        hud.dismiss()
+        loadingIndicator.stopAnimating()
     }
     
     func showHeroes(_ heroes: [Hero]) {

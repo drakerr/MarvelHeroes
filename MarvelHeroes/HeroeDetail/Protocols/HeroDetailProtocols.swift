@@ -15,6 +15,8 @@ protocol HeroDetailViewProtocol: class {
     func showHeroDetail(_ hero: Hero)
     func getHeroWikiUrl(_ url: String?)
     func showComics(_ comics: [Comic])
+    func showHUD()
+    func hideHUD()
 
 }
 
@@ -30,6 +32,8 @@ protocol HeroDetailPresenterProtocol: class {
 
     // VIEW -> PRESENTER
     func viewDidLoad()
+    func retrieveComicsWithOffset(_ offset: Int)
+
 }
 
 protocol HeroDetailInteractorOutputProtocol: class {
@@ -44,5 +48,5 @@ protocol HeroDetailInteractorInputProtocol: class {
     //var remoteDatamanager: PostListRemoteDataManagerInputProtocol? { get set }
     
     // PRESENTER -> INTERACTOR
-    func retrieveHeroComics(id: Int)
+    func retrieveHeroComics(id: Int, offset: Int)
 }

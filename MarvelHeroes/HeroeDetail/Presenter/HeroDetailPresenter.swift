@@ -7,6 +7,7 @@
 //
 
 class HeroDetailPresenter: HeroDetailPresenterProtocol{
+    
     weak var view: HeroDetailViewProtocol?
     var interactor: HeroDetailInteractorInputProtocol?
     var router: HeroDetailRouterProtocol?
@@ -15,13 +16,14 @@ class HeroDetailPresenter: HeroDetailPresenterProtocol{
     func viewDidLoad() {
         view?.showHeroDetail(hero!)
         view?.getHeroWikiUrl(heroUrl())
-        retrieveComics()
+        retrieveComicsWithOffset(0)
     }
     
-    func retrieveComics(){
-        interactor?.retrieveHeroComics(id: hero!.id)
+    func retrieveComicsWithOffset(_ offset: Int) {
+        view?.showHUD()
+        interactor?.retrieveHeroComics(id: hero!.id, offset: offset)
     }
-    
+
     func heroUrl() -> String?{
         for url in hero!.urls where url.enumType == .wiki {
             return url.url
@@ -33,6 +35,7 @@ class HeroDetailPresenter: HeroDetailPresenterProtocol{
 extension HeroDetailPresenter: HeroDetailInteractorOutputProtocol{
     func didRetrieveComicList(_ comics: [Comic]) {
         view?.showComics(comics)
+        view?.hideHUD()
     }
     
 }
