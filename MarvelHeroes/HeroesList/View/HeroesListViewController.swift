@@ -44,6 +44,7 @@ extension HeroesListViewController: HeroesListCollectionViewDelegate{
     func willDisplayLastCell() {
         presenter?.collectionScrolledBottom()
     }
+    
     func didSelectHero(_ hero: Hero) {
         presenter?.showHeroDetail(hero)
     }
