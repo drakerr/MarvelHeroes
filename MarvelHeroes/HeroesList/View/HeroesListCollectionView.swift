@@ -9,9 +9,8 @@
 import UIKit
 
 protocol HeroesListCollectionViewDelegate: class {
-    func willDisplayLastCell()
+    func willDisplayLastCell(index: Int)
     func didSelectHero(_ hero: Hero)
-
 }
 
 class HeroesListCollectionView: UICollectionView {
@@ -34,7 +33,6 @@ extension HeroesListCollectionView: UICollectionViewDataSource {
         return heroesList.count
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let hero = heroesList[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeroesListCollectionViewCell.identifier, for: indexPath) as! HeroesListCollectionViewCell
@@ -47,7 +45,7 @@ extension HeroesListCollectionView: UICollectionViewDataSource {
 extension HeroesListCollectionView: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if (indexPath.item == heroesList.count - 1) {
-            heroesListCVDelegate?.willDisplayLastCell()
+            heroesListCVDelegate?.willDisplayLastCell(index: heroesList.count)
         }
     }
     

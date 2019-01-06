@@ -7,6 +7,7 @@
 //
 
 class HeroesListPresenter: HeroesListPresenterProtocol {
+    
     var router: HeroesListRouterProtocol?
     weak var view: HeroesListViewProtocol?
     var interactor: HeroesListInteractorInputProtocol?
@@ -15,13 +16,13 @@ class HeroesListPresenter: HeroesListPresenterProtocol {
         retrieveHeroesList()
     }
     
-    func collectionScrolledBottom() {
-        retrieveHeroesList()
+    func collectionWillDisplayLastCell(index: Int) {
+        retrieveHeroesList(offset: index)
     }
     
-    func retrieveHeroesList(){
+    func retrieveHeroesList(offset: Int = 0){
         view?.showHUD()
-        interactor?.retrieveHeroesList()
+        interactor?.retrieveHeroesList(offset: offset)
     }
     
     func showHeroDetail(_ hero: Hero) {

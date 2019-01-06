@@ -18,6 +18,7 @@ class HeroDetailViewController: UIViewController {
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var comicsTitleLabel: UILabel!
     @IBOutlet weak var comicsView: UIView!
+    @IBOutlet weak var noComicsAvailableLabel: UILabel!
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
@@ -27,7 +28,6 @@ class HeroDetailViewController: UIViewController {
     var presenter: HeroDetailPresenterProtocol?
     var wikiUrl: String?
     lazy var comics = [Comic]()
-    
     private var hero: Hero?
     
     override func viewDidLoad() {
@@ -36,10 +36,9 @@ class HeroDetailViewController: UIViewController {
         presenter?.viewDidLoad()
         comicsCollectionView.dataSource = self
         comicsCollectionView.delegate = self
-
         comicsCollectionView.register(UINib(nibName: String(describing: HeroComicsCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: HeroComicsCollectionViewCell.identifier)
-
     }
+    
     @IBAction func visitWikiButtonClicked(_ sender: Any) {
         guard let url = URL(string: wikiUrl!) else { return }
         if #available(iOS 10.0, *) {
@@ -53,15 +52,15 @@ class HeroDetailViewController: UIViewController {
 extension HeroDetailViewController: HeroDetailViewProtocol{
     func showHUD() {
         loadingIndicator.startAnimating()
-
     }
     
     func hideHUD() {
         loadingIndicator.stopAnimating()
-
     }
+    
     func showComics(_ comics: [Comic]) {
         self.comics += comics
+        noComicsAvailableLabel.isHidden = !comics.isEmpty
         comicsCollectionView.reloadData()
     }
     
@@ -87,11 +86,7 @@ extension HeroDetailViewController: HeroDetailViewProtocol{
     }
 }
 
-extension HeroDetailViewController: UICollectionViewDataSource{
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
+extension HeroDetailViewController: UICollectionViewDataSource{    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return comics.count
     }

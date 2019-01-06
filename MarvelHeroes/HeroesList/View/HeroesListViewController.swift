@@ -12,6 +12,7 @@ class HeroesListViewController: UIViewController {
     var presenter: HeroesListPresenterProtocol?
     lazy var loadingIndicator = MarvelLoadingIndicator()
 
+    @IBOutlet weak var noDataLabel: UILabel!
     @IBOutlet weak var collectionView: HeroesListCollectionView!
     
     override func viewDidLoad() {
@@ -35,13 +36,14 @@ extension HeroesListViewController: HeroesListViewProtocol{
     
     func showHeroes(_ heroes: [Hero]) {
         collectionView.heroesList += heroes
+        noDataLabel.isHidden = !heroes.isEmpty
         collectionView.reloadData()
     }
 }
 
 extension HeroesListViewController: HeroesListCollectionViewDelegate{
-    func willDisplayLastCell() {
-        presenter?.collectionScrolledBottom()
+    func willDisplayLastCell(index: Int) {
+        presenter?.collectionWillDisplayLastCell(index: index)
     }
     
     func didSelectHero(_ hero: Hero) {

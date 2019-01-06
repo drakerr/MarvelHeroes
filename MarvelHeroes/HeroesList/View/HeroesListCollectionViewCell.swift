@@ -18,7 +18,6 @@ class HeroesListCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         cellContentView.roundedBy(10)
     }
     

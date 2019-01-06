@@ -17,7 +17,6 @@ class HeroComicsCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func configureCellWithComic(_ comic: Comic){

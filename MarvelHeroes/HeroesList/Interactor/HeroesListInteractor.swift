@@ -12,8 +12,8 @@ class HeroesListInteractor: HeroesListInteractorInputProtocol{
     weak var presenter: HeroesListInteractorOutputProtocol?
     var networkManager: NetworkManagerProtocol?
     
-    func retrieveHeroesList() {
-        networkManager?.getHeroesList({ [weak self] heroes in
+    func retrieveHeroesList(offset: Int) {
+        networkManager?.getHeroesList(offset: offset, completion: { [weak self] heroes in
             self?.presenter?.didRetrieveHeroes(heroes)
         })
     }

@@ -14,11 +14,13 @@ class NetworkManager: NetworkManagerProtocol {
     
     static let shared = NetworkManager()
     
-    func getHeroesList(_ completion: @escaping HeroesListHandler) {
+    func getHeroesList(offset: Int, completion: @escaping HeroesListHandler) {
         let url = Endpoints.marvelBaseEndPoint + Endpoints.marvelCharactersEndPoint
-        AF.request(url, parameters: getRequestParameters(offset: self.charactersOffset)).responseDecodable { (response: DataResponse<HeroesListResponseModel>) in
-            self.charactersOffset += response.value?.data.count ?? 0
-            guard let heroes = response.value?.data.results else { return}
+        AF.request(url, parameters: getRequestParameters(offset: offset)).responseDecodable { (response: DataResponse<HeroesListResponseModel>) in
+            guard let heroes = response.value?.data.results else{
+                completion([])
+                return
+            }
             completion(heroes)
         }
     }
@@ -26,18 +28,16 @@ class NetworkManager: NetworkManagerProtocol {
     func getHeroComics(id: Int, offset: Int, completion: @escaping HeroComicsHandler){
         let comicsEndPoint = String(format: Endpoints.marvelCharacterComicsEndPoint, id)
         let url = Endpoints.marvelBaseEndPoint + comicsEndPoint
-
         AF.request(url, parameters: getRequestParameters(offset: offset)).responseDecodable { (response: DataResponse<HeroComicsResponseModel>) in
-            guard let comics = response.value?.data.results else { return}
+            guard let comics = response.value?.data.results else {
+                completion([])
+                return
+            }
             completion(comics)
         }
-
     }
     
-    
     private let ts = NSDate().timeIntervalSince1970.description
-    private var charactersOffset = 0
-
     private func getRequestParameters(offset: Int) -> Parameters{
         let params: Parameters = [
             "apikey": Endpoints.marvelPublicApiKey,
@@ -60,7 +60,6 @@ fileprivate extension String {
                     CC_MD5(messageBytes, CC_LONG(messageData.count), digestBytes)
                 }
             }
-            
             return digestData.map { String(format: "%02hhx", $0) }.joined()
         }
     }
