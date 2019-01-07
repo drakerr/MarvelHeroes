@@ -27,7 +27,7 @@ struct Url: Decodable {
     
     var enumType: UrlType {
         let urlType = UrlType(rawValue: type)
-        return urlType ?? . detail
+        return urlType ?? .other
     }
     
     enum UrlType: String, Decodable {

@@ -14,7 +14,7 @@
 		0412503B21DF8DC400C5BEF1 /* MarvelLoadingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0412503A21DF8DC400C5BEF1 /* MarvelLoadingIndicator.xib */; };
 		0467265921CCFF2400C0EA52 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467265821CCFF2400C0EA52 /* NetworkManager.swift */; };
 		0467265B21CD001100C0EA52 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467265A21CD001100C0EA52 /* NetworkManagerProtocol.swift */; };
-		0467265D21CD026700C0EA52 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467265C21CD026700C0EA52 /* Endpoints.swift */; };
+		0467265D21CD026700C0EA52 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467265C21CD026700C0EA52 /* Constants.swift */; };
 		0467266221CD0C2000C0EA52 /* HeroesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467266121CD0C2000C0EA52 /* HeroesListViewController.swift */; };
 		0467266521CD0C6800C0EA52 /* HeroesListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467266421CD0C6800C0EA52 /* HeroesListProtocols.swift */; };
 		0467266821CD0E7B00C0EA52 /* HeroesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467266721CD0E7B00C0EA52 /* HeroesListPresenter.swift */; };
@@ -71,7 +71,7 @@
 		0412503A21DF8DC400C5BEF1 /* MarvelLoadingIndicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarvelLoadingIndicator.xib; sourceTree = "<group>"; };
 		0467265821CCFF2400C0EA52 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0467265A21CD001100C0EA52 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
-		0467265C21CD026700C0EA52 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		0467265C21CD026700C0EA52 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0467266121CD0C2000C0EA52 /* HeroesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListViewController.swift; sourceTree = "<group>"; };
 		0467266421CD0C6800C0EA52 /* HeroesListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListProtocols.swift; sourceTree = "<group>"; };
 		0467266721CD0E7B00C0EA52 /* HeroesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesListPresenter.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 				0412503521DF8B2400C5BEF1 /* View */,
 				04D5320921D6323800D35E0A /* Extensions */,
 				0467265621CCFECE00C0EA52 /* Managers */,
-				0467265C21CD026700C0EA52 /* Endpoints.swift */,
+				0467265C21CD026700C0EA52 /* Constants.swift */,
 				04D5320C21D638A900D35E0A /* Colors.swift */,
 			);
 			path = Common;
@@ -357,8 +357,8 @@
 		04D5321021D6401D00D35E0A /* HeroeDetail */ = {
 			isa = PBXGroup;
 			children = (
-				04B7A2EC21DD1A3A00AC8B14 /* Interactor */,
 				04B7A2E921DD18EC00AC8B14 /* Entities */,
+				04B7A2EC21DD1A3A00AC8B14 /* Interactor */,
 				04D5321A21D6442200D35E0A /* Presenter */,
 				04D5321721D6431E00D35E0A /* Router */,
 				04D5321421D6426000D35E0A /* Protocols */,
@@ -650,7 +650,7 @@
 				0467265B21CD001100C0EA52 /* NetworkManagerProtocol.swift in Sources */,
 				0412503721DF8B5500C5BEF1 /* MarvelLoadingIndicator.swift in Sources */,
 				04D5320B21D6324900D35E0A /* UIView+Extensions.swift in Sources */,
-				0467265D21CD026700C0EA52 /* Endpoints.swift in Sources */,
+				0467265D21CD026700C0EA52 /* Constants.swift in Sources */,
 				04B7A2E821DD152300AC8B14 /* Comic.swift in Sources */,
 				04D5321921D6432C00D35E0A /* HeroDetailRouter.swift in Sources */,
 				04D5321C21D644C200D35E0A /* HeroDetailPresenter.swift in Sources */,
@@ -836,7 +836,10 @@
 				DEVELOPMENT_TEAM = 8VM29J4W23;
 				INFOPLIST_FILE = "$(SRCROOT)/MarvelHeroes/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aleixcos.MarvelHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -853,7 +856,10 @@
 				DEVELOPMENT_TEAM = 8VM29J4W23;
 				INFOPLIST_FILE = "$(SRCROOT)/MarvelHeroes/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aleixcos.MarvelHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -870,7 +876,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T5CW4C73Z;
 				INFOPLIST_FILE = MarvelHeroesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aleixcos.MarvelHeroesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -888,7 +898,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T5CW4C73Z;
 				INFOPLIST_FILE = MarvelHeroesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aleixcos.MarvelHeroesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -905,7 +919,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T5CW4C73Z;
 				INFOPLIST_FILE = MarvelHeroesUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aleixcos.MarvelHeroesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -922,7 +940,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T5CW4C73Z;
 				INFOPLIST_FILE = MarvelHeroesUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aleixcos.MarvelHeroesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

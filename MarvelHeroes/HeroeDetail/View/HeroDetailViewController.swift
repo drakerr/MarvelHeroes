@@ -41,11 +41,7 @@ class HeroDetailViewController: UIViewController {
     
     @IBAction func visitWikiButtonClicked(_ sender: Any) {
         guard let url = URL(string: wikiUrl!) else { return }
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 
@@ -103,6 +99,14 @@ extension HeroDetailViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if (indexPath.item == comics.count - 1 && comics.count != hero?.comics.available) {
             presenter?.retrieveComicsWithOffset(comics.count)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let comic = comics[indexPath.item]
+        for url in comic.urls where url.enumType == .detail {
+            guard let comicUrl = URL(string: url.url) else { return }
+            UIApplication.shared.open(comicUrl, options: [:], completionHandler: nil)
         }
     }
 }

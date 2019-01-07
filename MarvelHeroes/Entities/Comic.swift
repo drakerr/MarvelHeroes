@@ -17,5 +17,5 @@ struct Comic: Decodable {
         guard let imagePath = thumbnail["path"], let imageExtension = thumbnail["extension"] else {return nil}
         return imagePath + "." + imageExtension
     }
-    //let urls: [Url]
+    let urls: [Url]
 }

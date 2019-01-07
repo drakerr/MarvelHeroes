@@ -40,9 +40,9 @@ class NetworkManager: NetworkManagerProtocol {
     private let ts = NSDate().timeIntervalSince1970.description
     private func getRequestParameters(offset: Int) -> Parameters{
         let params: Parameters = [
-            "apikey": Endpoints.marvelPublicApiKey,
+            "apikey": Constants.marvelPublicApiKey,
             "ts": ts,
-            "hash": (ts + Endpoints.marvelPrivateApiKey + Endpoints.marvelPublicApiKey).MD5,
+            "hash": (ts + Constants.marvelPrivateApiKey + Constants.marvelPublicApiKey).MD5,
             "offset" : offset
         ]
         return params
