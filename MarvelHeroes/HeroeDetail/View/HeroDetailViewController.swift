@@ -26,9 +26,6 @@ class HeroDetailViewController: UIViewController {
 
     lazy var loadingIndicator = MarvelLoadingIndicator()
     var presenter: HeroDetailPresenterProtocol?
-    var wikiUrl: String?
-    lazy var comics = [Comic]()
-    private var hero: Hero?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +37,17 @@ class HeroDetailViewController: UIViewController {
     }
     
     @IBAction func visitWikiButtonClicked(_ sender: Any) {
-        guard let url = URL(string: wikiUrl!) else { return }
+        guard let url = URL(string: (presenter?.getHeroWikiUrl())!) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 
 extension HeroDetailViewController: HeroDetailViewProtocol{
+    func showDownloadError(_ error: NetworkError) {
+        noComicsAvailableLabel.isHidden = false
+        noComicsAvailableLabel.text = error.description
+    }
+    
     func showHUD() {
         loadingIndicator.startAnimating()
     }
@@ -55,22 +57,12 @@ extension HeroDetailViewController: HeroDetailViewProtocol{
     }
     
     func showComics(_ comics: [Comic]) {
-        self.comics += comics
-        noComicsAvailableLabel.isHidden = !comics.isEmpty
+        noComicsAvailableLabel.isHidden = true
         comicsCollectionView.reloadData()
-    }
-    
-    func getHeroWikiUrl(_ url: String?) {
-        if let url = url {
-            wikiUrl = url
-        } else {
-            wikiButton.isHidden = true
-        }
     }
     
     func showHeroDetail(_ hero: Hero) {
         title = hero.name
-        self.hero = hero
         nameLabel.text = hero.name
         descriptionLabel.text = hero.description
         descriptionView.isHidden = hero.description.isEmpty
@@ -79,16 +71,18 @@ extension HeroDetailViewController: HeroDetailViewProtocol{
         if let imageUrl = hero.imageUrl{
             heroImageView.kf.setImage(with: URL(string: imageUrl))
         }
+        wikiButton.isHidden = presenter?.getHeroWikiUrl().isEmpty ?? true
+
     }
 }
 
 extension HeroDetailViewController: UICollectionViewDataSource{    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return comics.count
+        return presenter?.numberOfItemsInSection() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let comic = comics[indexPath.item]
+        guard let comic = presenter?.comicAt(indexPath: indexPath) else {return UICollectionViewCell()}
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeroComicsCollectionViewCell.identifier, for: indexPath) as! HeroComicsCollectionViewCell
         cell.configureCellWithComic(comic)
         return cell
@@ -97,13 +91,13 @@ extension HeroDetailViewController: UICollectionViewDataSource{
 
 extension HeroDetailViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if (indexPath.item == comics.count - 1 && comics.count != hero?.comics.available) {
-            presenter?.retrieveComicsWithOffset(comics.count)
+        if (presenter?.shoudLoadMoreComicsAt(indexPath: indexPath) ?? false) {
+            presenter?.retrieveComicsWithOffset(indexPath.item + 1)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let comic = comics[indexPath.item]
+        guard let comic = presenter?.comicAt(indexPath: indexPath) else {return}
         for url in comic.urls where url.enumType == .detail {
             guard let comicUrl = URL(string: url.url) else { return }
             UIApplication.shared.open(comicUrl, options: [:], completionHandler: nil)

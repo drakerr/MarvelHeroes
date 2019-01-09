@@ -41,6 +41,7 @@
 		04D5321621D6427C00D35E0A /* HeroDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5321521D6427C00D35E0A /* HeroDetailProtocols.swift */; };
 		04D5321921D6432C00D35E0A /* HeroDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5321821D6432C00D35E0A /* HeroDetailRouter.swift */; };
 		04D5321C21D644C200D35E0A /* HeroDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5321B21D644C200D35E0A /* HeroDetailPresenter.swift */; };
+		04E93B5521E648DB00A03897 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E93B5421E648DB00A03897 /* NetworkError.swift */; };
 		50B519AE699816F83E140DFA /* Pods_MarvelHeroes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E513B5BE81D35367C7CA4FA2 /* Pods_MarvelHeroes.framework */; };
 		A5CF58EB7D29391E5D54FEC7 /* Pods_MarvelHeroesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF0D54ACC36D39607A44C39 /* Pods_MarvelHeroesTests.framework */; };
 		FF24D4500807D18575C38D60 /* Pods_MarvelHeroesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B564E3D25052328FE301E86 /* Pods_MarvelHeroesUITests.framework */; };
@@ -104,6 +105,7 @@
 		04D5321521D6427C00D35E0A /* HeroDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailProtocols.swift; sourceTree = "<group>"; };
 		04D5321821D6432C00D35E0A /* HeroDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailRouter.swift; sourceTree = "<group>"; };
 		04D5321B21D644C200D35E0A /* HeroDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailPresenter.swift; sourceTree = "<group>"; };
+		04E93B5421E648DB00A03897 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		0E820AABD251436F5513BD0E /* Pods-MarvelHeroes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelHeroes/Pods-MarvelHeroes.debug.xcconfig"; sourceTree = "<group>"; };
 		1658EF49EAE4F6B896A9DB22 /* Pods-MarvelHeroes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelHeroes/Pods-MarvelHeroes.release.xcconfig"; sourceTree = "<group>"; };
 		1B564E3D25052328FE301E86 /* Pods_MarvelHeroesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelHeroesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +190,7 @@
 			children = (
 				0467265821CCFF2400C0EA52 /* NetworkManager.swift */,
 				0467265A21CD001100C0EA52 /* NetworkManagerProtocol.swift */,
+				04E93B5421E648DB00A03897 /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				0467265D21CD026700C0EA52 /* Constants.swift in Sources */,
 				04B7A2E821DD152300AC8B14 /* Comic.swift in Sources */,
 				04D5321921D6432C00D35E0A /* HeroDetailRouter.swift in Sources */,
+				04E93B5521E648DB00A03897 /* NetworkError.swift in Sources */,
 				04D5321C21D644C200D35E0A /* HeroDetailPresenter.swift in Sources */,
 				04B7A2EE21DD1A5700AC8B14 /* HeroDetailInteractor.swift in Sources */,
 				0467266821CD0E7B00C0EA52 /* HeroesListPresenter.swift in Sources */,

@@ -13,8 +13,12 @@ class HeroDetailInteractor: HeroDetailInteractorInputProtocol{
     var networkManager: NetworkManagerProtocol?
     
     func retrieveHeroComics(id: Int, offset: Int) {
-        networkManager?.getHeroComics(id: id, offset: offset, completion: { [weak self] comics in
-            self?.presenter?.didRetrieveComicList(comics)
+        networkManager?.getHeroComics(id: id, offset: offset, completion: { [weak self] comics, error in
+            if let error = error {
+                self?.presenter?.didFailureRetrivingComics(error: error)
+            } else {
+                self?.presenter?.didRetrieveComicList(comics)
+            }
         })
     }
 }

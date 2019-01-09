@@ -6,15 +6,18 @@
 //  Copyright © 2018 Aleix Cos. All rights reserved.
 //
 
+import Foundation
+
 class HeroDetailPresenter: HeroDetailPresenterProtocol{
     weak var view: HeroDetailViewProtocol?
     var interactor: HeroDetailInteractorInputProtocol?
     var router: HeroDetailRouterProtocol?
     var hero: Hero?
     
+    private lazy var comics = [Comic]()
+
     func viewDidLoad() {
         view?.showHeroDetail(hero!)
-        view?.getHeroWikiUrl(heroUrl())
         retrieveComicsWithOffset()
     }
     
@@ -23,17 +26,37 @@ class HeroDetailPresenter: HeroDetailPresenterProtocol{
         interactor?.retrieveHeroComics(id: hero!.id, offset: offset)
     }
 
-    func heroUrl() -> String?{
+    func getHeroWikiUrl() -> String{
         for url in hero!.urls where url.enumType == .wiki {
             return url.url
         }
-        return nil
+        return ""
     }
+    
+    func shoudLoadMoreComicsAt(indexPath: IndexPath) -> Bool {
+        return (indexPath.item == comics.count - 1 && comics.count != hero?.comics.available)
+    }
+    
+    func numberOfItemsInSection() -> Int {
+        return comics.count
+    }
+    
+    func comicAt(indexPath: IndexPath) -> Comic {
+        return comics[indexPath.item]
+    }
+
+
 }
 
 extension HeroDetailPresenter: HeroDetailInteractorOutputProtocol{
+    func didFailureRetrivingComics(error: NetworkError) {
+        view?.showDownloadError(error)
+        view?.hideHUD()
+    }
+    
     func didRetrieveComicList(_ comics: [Comic]) {
-        view?.showComics(comics)
+        self.comics += comics
+        view?.showComics(self.comics)
         view?.hideHUD()
     }
     

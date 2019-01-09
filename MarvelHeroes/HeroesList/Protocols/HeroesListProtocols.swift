@@ -12,6 +12,7 @@ protocol HeroesListViewProtocol: class {
     var presenter: HeroesListPresenterProtocol? { get set }
 
     func showHeroes(_ heroes:[Hero])
+    func showDownloadError(_ error: NetworkError)
     func showHUD()
     func hideHUD()
 
@@ -31,11 +32,11 @@ protocol HeroesListPresenterProtocol: class {
     func viewDidLoad()
     func collectionWillDisplayLastCell(index: Int)
     func showHeroDetail(_ hero: Hero)
-
 }
 
 protocol HeroesListInteractorOutputProtocol: class {
     func didRetrieveHeroes(_ heroes: [Hero])
+    func didFailureRetrivingHeroes(error: NetworkError)
 }
 
 protocol HeroesListInteractorInputProtocol: class {

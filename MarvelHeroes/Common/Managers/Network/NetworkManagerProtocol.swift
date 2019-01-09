@@ -8,8 +8,8 @@
 
 import Foundation
 
-typealias HeroesListHandler = ([Hero]) -> Void
-typealias HeroComicsHandler = ([Comic]) -> Void
+typealias HeroesListHandler = ([Hero], NetworkError?) -> Void
+typealias HeroComicsHandler = ([Comic], NetworkError?) -> Void
 
 protocol NetworkManagerProtocol{
     func getHeroesList(offset:Int, completion: @escaping HeroesListHandler)

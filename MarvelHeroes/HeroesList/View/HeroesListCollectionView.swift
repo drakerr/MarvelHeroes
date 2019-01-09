@@ -14,11 +14,12 @@ protocol HeroesListCollectionViewDelegate: class {
 }
 
 class HeroesListCollectionView: UICollectionView {
-    var heroesList : [Hero] = []
+    lazy var heroesList: [Hero] = []
     weak var heroesListCVDelegate: HeroesListCollectionViewDelegate?
     
-    let lineSpacing: CGFloat = 5
-    let sidesInset: CGFloat = 5
+    private let lineSpacing: CGFloat = 5
+    private let sidesInset: CGFloat = 5
+    private let cellHeight: CGFloat = 200
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -59,7 +60,7 @@ extension HeroesListCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = (UIScreen.main.bounds.width / 2) - lineSpacing - sidesInset
-        return CGSize(width: screenWidth, height: 200)
+        return CGSize(width: screenWidth, height: cellHeight)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

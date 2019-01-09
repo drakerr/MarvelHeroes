@@ -13,8 +13,13 @@ class HeroesListInteractor: HeroesListInteractorInputProtocol{
     var networkManager: NetworkManagerProtocol?
     
     func retrieveHeroesList(offset: Int) {
-        networkManager?.getHeroesList(offset: offset, completion: { [weak self] heroes in
-            self?.presenter?.didRetrieveHeroes(heroes)
+        networkManager?.getHeroesList(offset: offset, completion: { [weak self] heroes,error in
+            if let error = error {
+                self?.presenter?.didFailureRetrivingHeroes(error: error)
+            } else {
+                self?.presenter?.didRetrieveHeroes(heroes)
+            }
+
         })
     }
 }

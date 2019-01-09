@@ -7,7 +7,6 @@
 //
 
 class HeroesListPresenter: HeroesListPresenterProtocol {
-    
     var router: HeroesListRouterProtocol?
     weak var view: HeroesListViewProtocol?
     var interactor: HeroesListInteractorInputProtocol?
@@ -34,6 +33,11 @@ class HeroesListPresenter: HeroesListPresenterProtocol {
 extension HeroesListPresenter: HeroesListInteractorOutputProtocol{
     func didRetrieveHeroes(_ heroes: [Hero]) {
         view?.showHeroes(heroes)
+        view?.hideHUD()
+    }
+    
+    func didFailureRetrivingHeroes(error: NetworkError) {
+        view?.showDownloadError(error)
         view?.hideHUD()
     }
 }

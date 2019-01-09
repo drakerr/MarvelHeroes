@@ -26,6 +26,11 @@ class HeroesListViewController: UIViewController {
 }
 
 extension HeroesListViewController: HeroesListViewProtocol{
+    func showDownloadError(_ error: NetworkError) {
+        noDataLabel.text = error.description
+        noDataLabel.isHidden = false
+    }
+    
     func showHUD() {
         loadingIndicator.startAnimating()
     }
@@ -36,7 +41,7 @@ extension HeroesListViewController: HeroesListViewProtocol{
     
     func showHeroes(_ heroes: [Hero]) {
         collectionView.heroesList += heroes
-        noDataLabel.isHidden = !heroes.isEmpty
+        noDataLabel.isHidden = true
         collectionView.reloadData()
     }
 }
